@@ -1,0 +1,238 @@
+/* Reset básico para asegurarse de que todos los elementos tengan márgenes y rellenos consistentes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Hace que el padding y el borde se incluyan en el tamaño total del elemento */
+}
+
+/* Estilo de la barra de navegación */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #111; /* Fondo oscuro para el nav */
+    padding: 10px 0; /* Reducido para un diseño más compacto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* Sombra suave */
+    transition: background 0.3s ease; /* Suavizar el fondo */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px; /* Reducido para un diseño más compacto */
+    font-size: 1.2em; /* Tamaño de fuente ajustado */
+    font-weight: 500;
+    position: relative;
+    overflow: hidden; /* Asegura que el pseudo-elemento se recorte */
+    transition: color 0.3s ease, transform 0.3s ease; /* Suavizar el cambio de color y transformación */
+}
+
+nav a:hover {
+    color: #33fffc; /* Cambiar color del texto al pasar el ratón */
+    transform: scale(1.05); /* Escalar ligeramente al pasar el ratón */
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Línea delgada debajo del texto */
+    left: 50%;
+    bottom: 0;
+    background: #33fffc; /* Color de la línea */
+    transform: translateX(-50%) scaleX(0); /* Inicialmente oculta */
+    transition: transform 0.3s ease; /* Suavizar la transformación */
+    transform-origin: bottom right;
+    z-index: -1; /* Asegura que esté detrás del texto */
+}
+
+nav a:hover::after {
+    transform: translateX(-50%) scaleX(1); /* Mostrar línea al pasar el ratón */
+    transform-origin: bottom left;
+}
+
+/* Estilos generales del cuerpo */
+body {
+    font-family: 'Arial', sans-serif; /* Fuente principal */
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto en blanco para contraste */
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en una columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: flex-start; /* Alinea los elementos al inicio de la columna */
+    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos la altura de la ventana */
+    padding: 0 20px; /* Espacio interno horizontal */
+    padding-top: 70px; /* Espacio para la barra de navegación fija */
+}
+
+/* Estilo del encabezado */
+header {
+    text-align: center; /* Centra el texto */
+    margin-top: 50px; /* Espacio superior para separar del borde */
+}
+
+header h1 {
+    font-size: 3em; /* Tamaño de fuente más grande para el título */
+    color: #33fffc; /* Color llamativo para el título */
+}
+
+header p {
+    font-size: 1.6em; /* Tamaño de fuente para el subtítulo */
+    color: #ccc; /* Color más suave para el subtítulo */
+    margin-top: 10px; /* Espacio superior */
+}
+
+/* Estilo del contenedor principal */
+.container {
+    text-align: center; /* Centra el texto dentro del contenedor */
+    margin-top: 50px; /* Espacio superior para separar del encabezado y la barra de navegación */
+    padding: 30px; /* Espacio interno dentro del contenedor */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro semitransparente */
+    border-radius: 12px; /* Esquinas redondeadas */
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3); /* Sombra clara para dar profundidad */
+    max-width: 800px; /* Ancho máximo */
+    width: 100%;
+}
+
+/* Estilo para subtítulos (h2) */
+h2 {
+    font-size: 2.5em; /* Tamaño de fuente adecuado para subtítulos */
+    margin-bottom: 20px; /* Espacio inferior */
+    color: #33fffc; /* Color del texto de los subtítulos */
+}
+
+/* Estilo para etiquetas (label) */
+label {
+    display: block; /* Mostrar como bloque para mayor claridad */
+    margin: 10px 0; /* Espacio arriba y abajo */
+    color: #ccc; /* Color del texto */
+}
+
+/* Estilo para campos de texto y área de texto */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%; /* Ancho completo del campo */
+    padding: 12px; /* Espacio interno en el campo */
+    margin-bottom: 15px; /* Espacio inferior */
+    border: 1px solid #33fffc; /* Borde color cyan */
+    border-radius: 5px; /* Esquinas redondeadas */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+    color: #fff; /* Texto en blanco para contraste */
+    font-size: 1em; /* Tamaño de fuente */
+}
+
+/* Estilo para botones */
+button {
+    padding: 12px 25px; /* Espacio interno en el botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Esquinas redondeadas */
+    background-color: #33fffc; /* Fondo color cyan */
+    color: #000; /* Texto en negro para contraste */
+    font-size: 1em; /* Tamaño de fuente */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    transition: background-color 0.3s ease; /* Suaviza el cambio de fondo */
+}
+
+/* Estilo para el botón al pasar el ratón */
+button:hover {
+    background-color: rgba(51, 255, 252, 0.8); /* Fondo más claro al pasar el ratón */
+}
+
+/* Estilo para enlaces */
+a {
+    color: #33fffc; /* Color de los enlaces */
+    text-decoration: none; /* Sin subrayado por defecto */
+    transition: color 0.3s ease; /* Suaviza el cambio de color */
+}
+
+/* Estilo para enlaces al pasar el ratón */
+a:hover {
+    text-decoration: underline; /* Subrayar el texto del enlace al pasar el ratón */
+}
+
+/* Estilo para las tarjetas de proyectos */
+.proyecto {
+    background-color: rgba(51, 255, 252, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.proyecto:hover {
+    background-color: rgba(51, 255, 252, 0.3);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+}
+
+.proyecto h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.proyecto p {
+    font-size: 1.1em;
+    color: #ddd;
+}
+
+.proyecto a {
+    color: #33fffc;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+}
+
+.proyecto a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Estilo para el pie de página */
+footer {
+    background-color: #111; /* Fondo oscuro para el pie de página */
+    color: #ccc; /* Texto gris claro */
+    text-align: center; /* Centra el texto */
+    padding: 20px 0; /* Espacio interno del pie de página */
+    position: fixed; /* Fija el pie de página en la parte inferior */
+    bottom: 0; /* Alinea el pie de página en la parte inferior de la ventana */
+    left: 0;
+    width: 100%; /* Ancho completo del pie de página */
+    border-top: 1px solid #33fffc; /* Borde superior cian para separar del contenido */
+    box-shadow: 0 -4px 8px rgba(255, 255, 255, 0.2); /* Sombra suave */
+}
+
+footer {
+    background-color: #111; /* Fondo oscuro para el pie de página */
+    color: #ccc; /* Texto gris claro */
+    text-align: center; /* Centra el texto */
+    padding: 10px 0; /* Espaciado vertical reducido */
+    position: fixed; /* Fija el pie de página en la parte inferior */
+    bottom: 0; /* Alinea el pie de página en la parte inferior de la ventana */
+    left: 0;
+    width: 100%; /* Ancho completo del pie de página */
+    border-top: 1px solid #33fffc; /* Borde superior cian para separar del contenido */
+    box-shadow: 0 -2px 4px rgba(255, 255, 255, 0.2); /* Sombra suave para el pie de página */
+}
+
+footer a {
+    color: #33fffc; /* Color cian para los enlaces del pie de página */
+    text-decoration: none; /* Sin subrayado en los enlaces */
+    margin: 0 5px; /* Espacio horizontal reducido entre enlaces */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}
+
+footer p {
+    font-size: 0.9em; /* Tamaño de fuente reducido para el texto del pie de página */
+    margin: 5px 0; /* Espacio vertical entre líneas */
+}

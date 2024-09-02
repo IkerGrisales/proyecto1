@@ -1,0 +1,179 @@
+/* Reset básico para asegurar consistencia en márgenes y rellenos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo de la barra de navegación */
+nav {
+    position: fixed; /* Fija la barra de navegación en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ancho completo de la página */
+    background: #111; /* Fondo oscuro para la barra de navegación */
+    padding: 10px 0; /* Espaciado vertical reducido */
+    display: flex;
+    justify-content: center; /* Centra los enlaces horizontalmente */
+    align-items: center;
+    z-index: 10; /* Asegura que la barra esté sobre otros elementos */
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2); /* Sombra más suave */
+    transition: background 0.3s ease; /* Suaviza el cambio del color de fondo */
+}
+
+nav a {
+    color: white; /* Color de texto blanco para los enlaces */
+    text-decoration: none; /* Sin subrayado en los enlaces */
+    padding: 10px 20px; /* Espaciado alrededor del texto del enlace reducido */
+    font-size: 1.2em; /* Tamaño de fuente más pequeño para los enlaces */
+    font-weight: 500; /* Peso de fuente medio */
+    position: relative; /* Posiciona los pseudo-elementos correctamente */
+    overflow: hidden; /* Asegura que el pseudo-elemento se recorte si es necesario */
+    transition: color 0.3s ease, transform 0.3s ease; /* Suaviza el cambio de color y escala */
+}
+
+nav a:hover {
+    color: #33fffc; /* Cambia el color del texto al pasar el ratón */
+    transform: scale(1.05); /* Escala el enlace ligeramente al pasar el ratón */
+}
+
+nav a::after {
+    content: ''; /* Pseudo-elemento para el efecto visual */
+    position: absolute;
+    width: 100%; /* Ancho completo del enlace */
+    height: 2px; /* Línea delgada debajo del texto */
+    left: 50%;
+    bottom: 0;
+    background: #33fffc; /* Color de la línea */
+    transform: translateX(-50%) scaleX(0); /* Inicialmente oculta */
+    transition: transform 0.3s ease; /* Suaviza la transformación de la línea */
+    transform-origin: bottom right; /* Origen de la transformación */
+    z-index: -1; /* Asegura que esté detrás del texto */
+}
+
+nav a:hover::after {
+    transform: translateX(-50%) scaleX(1); /* Muestra la línea al pasar el ratón */
+    transform-origin: bottom left; /* Cambia el origen de la transformación */
+}
+
+/* Estilos generales del cuerpo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: black; /* Fondo negro para toda la página */
+    color: white; /* Texto blanco para contraste */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh; /* Asegura que el contenido cubra toda la altura de la ventana */
+    padding: 20px;
+    padding-top: 60px; /* Espacio para la barra de navegación fija */
+    padding-bottom: 50px; /* Espacio para el pie de página fijo */
+}
+
+/* Estilo del header */
+header {
+    text-align: center;
+    margin-top: 80px; /* Espacio superior para separar del contenido superior */
+}
+
+header h1 {
+    font-size: 2.5em; /* Tamaño más pequeño para el título */
+    color: #33fffc; /* Color cian para el título */
+    margin-bottom: 10px; /* Espacio inferior para separar del texto del párrafo */
+}
+
+/* Estilo del contenedor principal */
+.container {
+    text-align: center; /* Centra el texto dentro del contenedor */
+    margin-top: 20px; /* Espacio superior para separar del header */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro con opacidad */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2); /* Sombra más suave */
+    max-width: 800px; /* Ancho máximo del contenedor */
+    width: 100%; /* Ancho completo del contenedor */
+}
+
+/* Estilo de los títulos de sección */
+h2 {
+    font-size: 2em; /* Tamaño más pequeño para los subtítulos de las secciones */
+    margin-bottom: 15px; /* Espacio inferior para separar del contenido siguiente */
+    color: #33fffc; /* Color cian para los subtítulos */
+}
+
+/* Estilo de los párrafos y listas */
+p, ul {
+    font-size: 1.1em; /* Tamaño de fuente para párrafos y listas */
+    line-height: 1.6; /* Altura de línea para mejor legibilidad */
+    margin-bottom: 15px; /* Espacio inferior para separar del contenido siguiente */
+    color: #ccc; /* Color gris claro para el texto */
+}
+
+ul {
+    list-style-type: none; /* Quita los puntos de lista */
+    padding: 0; /* Elimina el espaciado interno de la lista */
+}
+
+ul li {
+    background-color: rgba(51, 255, 252, 0.1); /* Fondo de los elementos de lista con opacidad */
+    margin: 10px 0; /* Espacio superior e inferior */
+    padding: 10px; /* Espaciado interno reducido */
+    border-radius: 10px; /* Esquinas más redondeadas */
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2); /* Sombra más suave */
+}
+
+/* Estilo de los enlaces */
+a {
+    color: #33fffc; /* Color cian para los enlaces */
+    text-decoration: none; /* Sin subrayado en los enlaces */
+}
+
+a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}
+
+/* Estilo para la barra de progreso */
+.progress {
+    background-color: rgba(51, 255, 252, 0.1); /* Fondo de la barra de progreso con opacidad */
+    border-radius: 5px; /* Bordes redondeados */
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    height: 20px; /* Menor altura para una mejor visibilidad */
+    margin: 15px 0; /* Espacio superior e inferior */
+}
+
+.progress-bar {
+    background-color: #33fffc; /* Color cian para la barra de progreso */
+    height: 100%; /* Altura completa de la barra de progreso */
+    width: 0; /* Ancho inicial, ajustable por JavaScript */
+    transition: width 0.7s ease; /* Suaviza el cambio de ancho */
+}
+
+/* Estilo del pie de página */
+footer {
+    position: fixed; /* Fija el pie de página en la parte inferior */
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Ancho completo de la página */
+    background: #111; /* Fondo oscuro para el pie de página */
+    color: white; /* Texto blanco */
+    padding: 10px 0; /* Espaciado vertical reducido */
+    text-align: center; /* Centra el texto en el pie de página */
+    box-shadow: 0 -2px 4px rgba(255, 255, 255, 0.2); /* Sombra más suave */
+    z-index: 10; /* Asegura que el pie de página esté sobre otros elementos */
+}
+
+footer a {
+    color: #33fffc; /* Color cian para los enlaces del pie de página */
+    text-decoration: none; /* Sin subrayado en los enlaces */
+    margin: 0 8px; /* Espacio horizontal entre enlaces reducido */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}
+
+footer p {
+    font-size: 0.9em; /* Tamaño de fuente más pequeño para el texto del pie de página */
+    margin: 5px 0; /* Espacio vertical entre líneas */
+}

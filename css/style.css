@@ -1,0 +1,233 @@
+/* Reset básico para asegurar consistencia en márgenes y rellenos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales del cuerpo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000; /* Fondo negro para toda la página */
+    color: #fff; /* Texto blanco para contraste */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh; /* Asegura que el contenido cubra toda la altura de la ventana */
+    padding: 20px;
+    padding-top: 70px; /* Espacio para la barra de navegación fija */
+    padding-bottom: 60px; /* Espacio para el pie de página fijo */
+}
+
+/* Estilo del header */
+header {
+    text-align: center;
+    margin-top: 80px; /* Espacio superior para separarlo del contenido superior */
+}
+
+header h1 {
+    font-size: 2.5em; /* Tamaño más pequeño para el título */
+    color: #33fffc; /* Color cian para el título */
+    margin-bottom: 10px; /* Espacio inferior para separar del texto del párrafo */
+}
+
+header p {
+    font-size: 1.4em; /* Tamaño más pequeño para el subtítulo */
+    color: #33fffc; /* Color cian para el subtítulo */
+    font-weight: 300; /* Peso de fuente más ligero */
+}
+
+/* Estilo de la barra de navegación */
+nav {
+    position: fixed; /* Fija la barra de navegación en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ancho completo de la página */
+    background: #111; /* Fondo oscuro para la barra de navegación */
+    padding: 10px 0; /* Espaciado vertical reducido */
+    display: flex;
+    justify-content: center; /* Centra los enlaces horizontalmente */
+    align-items: center;
+    z-index: 10; /* Asegura que la barra esté sobre otros elementos */
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2); /* Sombra más suave */
+    transition: background 0.3s ease; /* Suaviza el cambio del color de fondo */
+}
+
+nav a {
+    color: white; /* Color de texto blanco para los enlaces */
+    text-decoration: none; /* Sin subrayado en los enlaces */
+    padding: 10px 20px; /* Espaciado alrededor del texto del enlace reducido */
+    font-size: 1.2em; /* Tamaño de fuente más pequeño para los enlaces */
+    font-weight: 500; /* Peso de fuente medio */
+    position: relative; /* Posiciona los pseudo-elementos correctamente */
+    overflow: hidden; /* Asegura que el pseudo-elemento se recorte si es necesario */
+    transition: color 0.3s ease, transform 0.3s ease; /* Suaviza el cambio de color y escala */
+}
+
+nav a:hover {
+    color: #33fffc; /* Cambia el color del texto al pasar el ratón */
+    transform: scale(1.05); /* Escala el enlace ligeramente al pasar el ratón */
+}
+
+nav a::after {
+    content: ''; /* Pseudo-elemento para el efecto visual */
+    position: absolute;
+    width: 100%; /* Ancho completo del enlace */
+    height: 2px; /* Línea delgada debajo del texto */
+    left: 50%;
+    bottom: 0;
+    background: #33fffc; /* Color de la línea */
+    transform: translateX(-50%) scaleX(0); /* Inicialmente oculta */
+    transition: transform 0.3s ease; /* Suaviza la transformación de la línea */
+    transform-origin: bottom right; /* Origen de la transformación */
+    z-index: -1; /* Asegura que esté detrás del texto */
+}
+
+nav a:hover::after {
+    transform: translateX(-50%) scaleX(1); /* Muestra la línea al pasar el ratón */
+    transform-origin: bottom left; /* Cambia el origen de la transformación */
+}
+
+/* Estilo del contenedor principal */
+.container {
+    text-align: center; /* Centra el texto dentro del contenedor */
+    margin-top: 20px; /* Espacio superior reducido para separar del header */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro con opacidad */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2); /* Sombra más suave */
+    max-width: 800px; /* Ancho máximo del contenedor reducido */
+    width: 100%; /* Ancho completo del contenedor */
+}
+
+/* Estilo de las secciones */
+section {
+    margin-bottom: 30px; /* Espacio inferior reducido para separar secciones */
+}
+
+h2 {
+    font-size: 2em; /* Tamaño más pequeño para los subtítulos de las secciones */
+    margin-bottom: 15px; /* Espacio inferior para separar del contenido siguiente */
+    color: #33fffc; /* Color cian para los subtítulos */
+}
+
+p {
+    font-size: 1.1em; /* Tamaño de fuente reducido para párrafos */
+    line-height: 1.6; /* Altura de línea para mejor legibilidad */
+    color: #ccc; /* Color gris claro para el texto */
+}
+
+ul {
+    list-style: none; /* Quita los puntos de lista */
+    padding: 0;
+}
+
+ul li {
+    background-color: rgba(51, 255, 252, 0.1); /* Fondo de los elementos de lista con opacidad */
+    margin: 10px 0; /* Espacio superior e inferior reducido */
+    padding: 10px; /* Espaciado interno reducido */
+    border-radius: 10px; /* Bordes más redondeados */
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2); /* Sombra más suave */
+}
+
+/* Estilo de los enlaces */
+a {
+    color: #33fffc; /* Color cian para los enlaces */
+    text-decoration: none; /* Sin subrayado en los enlaces */
+}
+
+a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}
+
+/* Estilo de las tarjetas de proyectos */
+.proyecto {
+    background-color: rgba(51, 255, 252, 0.2); /* Fondo de las tarjetas con opacidad */
+    border-radius: 10px; /* Bordes más redondeados */
+    padding: 20px; /* Espaciado interno reducido */
+    margin: 15px 0; /* Espacio superior e inferior reducido */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3); /* Sombra más suave */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Suaviza los cambios de color y sombra */
+}
+
+.proyecto:hover {
+    background-color: rgba(51, 255, 252, 0.3); /* Cambia el color de fondo al pasar el ratón */
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.4); /* Intensifica la sombra */
+}
+
+.proyecto h2 {
+    font-size: 1.8em; /* Tamaño más pequeño para los títulos de proyectos */
+    margin-bottom: 10px; /* Espacio inferior reducido para separar del texto siguiente */
+}
+
+.proyecto p {
+    font-size: 1.2em; /* Tamaño de fuente para la descripción del proyecto */
+    color: #ddd; /* Color gris claro para el texto */
+}
+
+.proyecto a {
+    color: #33fffc; /* Color cian para los enlaces en las tarjetas */
+    text-decoration: none; /* Sin subrayado en los enlaces */
+    font-weight: 500; /* Peso de fuente medio */
+    display: inline-block; /* Permite el espaciado alrededor del enlace */
+    margin-top: 10px; /* Espacio superior para separar del contenido anterior */
+    transition: color 0.3s ease; /* Suaviza el cambio de color */
+}
+
+.proyecto a:hover {
+    color: #fff; /* Cambia el color al pasar el ratón */
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}
+
+/* Estilo para la imagen de perfil */
+.perfil-img-container {
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente */
+    align-items: center; /* Centra la imagen verticalmente */
+    margin-bottom: 30px; /* Espacio inferior para separar de otros elementos */
+}
+
+.perfil-img {
+    width: 180px; /* Tamaño de la imagen */
+    height: 180px; /* Tamaño de la imagen */
+    border-radius: 50%; /* Bordes redondeados para hacer la imagen circular */
+    border: 5px solid #33fffc; /* Borde delgado cian alrededor de la imagen */
+    box-shadow: 0 6px 20px rgba(51, 255, 252, 0.4); /* Sombra suave para un efecto flotante */
+    object-fit: cover; /* Asegura que la imagen se ajuste bien al contenedor */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza las transiciones de escala y sombra */
+}
+
+.perfil-img:hover {
+    transform: scale(1.05); /* Aumenta la imagen ligeramente al pasar el ratón */
+    box-shadow: 0 8px 25px rgba(51, 255, 252, 0.6); /* Intensifica la sombra al pasar el ratón */
+}
+
+/* Estilo del pie de página */
+footer {
+    background-color: #111; /* Fondo oscuro para el pie de página */
+    color: #ccc; /* Texto gris claro */
+    text-align: center; /* Centra el texto */
+    padding: 10px 0; /* Espaciado vertical reducido */
+    position: fixed; /* Fija el pie de página en la parte inferior */
+    bottom: 0; /* Alinea el pie de página en la parte inferior de la ventana */
+    left: 0;
+    width: 100%; /* Ancho completo del pie de página */
+    border-top: 1px solid #33fffc; /* Borde superior cian para separar del contenido */
+    box-shadow: 0 -2px 4px rgba(255, 255, 255, 0.2); /* Sombra suave para el pie de página */
+}
+
+footer a {
+    color: #33fffc; /* Color cian para los enlaces del pie de página */
+    text-decoration: none; /* Sin subrayado en los enlaces */
+    margin: 0 5px; /* Espacio horizontal reducido entre enlaces */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}
+
+footer p {
+    font-size: 0.9em; /* Tamaño de fuente reducido para el texto del pie de página */
+    margin: 5px 0; /* Espacio vertical entre líneas */
+}
